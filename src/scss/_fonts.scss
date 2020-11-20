@@ -1,0 +1,6 @@
+@import "mixins";
+
+// Name-font, path-font, weigth-font, style-font
+@include font-face("Gotham Pro", "../assets/fonts/GothamProRegular/GothamPro", 400, normal);
+@include font-face("Gotham Pro", "../assets/fonts/GothamProMedium/GothamPro-Medium.eot", 500, normal);
+@include font-face("PF Agora Slab Pro", "../assets/fonts/PfAgoraSlabProBold/PFAgoraSlabPro-Bold", 700, normal);
