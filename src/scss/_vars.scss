@@ -4,23 +4,24 @@ $font-family: 'Gotham Pro', sans-serif;
 $pf: 'PF Agora Slab Pro', sans-serif;
 
 $accent: #325DFB;
+$hover: #56E0BA;
 $bg: #F6F6F6;
 
 $header-gradient: linear-gradient(231.82deg, #4C5CD2 35.93%, #1B2A95 63.25%);
 $footer-gradient: radial-gradient(90.63% 74.83% at 60.59% 10.71%, #4C5CD2 0%, #1B2A95 93.76%);
 
 // Bootstrap variables
-// $grid-breakpoints: (
-//   xs: 0,
-//   sm: 576px,
-//   md: 768px,
-//   lg: 992px,
-//   xl: 1200px
-// ) !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
 
-// $container-max-widths: (
-//   sm: 540px,
-//   md: 720px,
-//   lg: 960px,
-//   xl: 1140px
-// ) !default;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;
