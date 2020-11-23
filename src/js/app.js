@@ -51,22 +51,27 @@ quest_el.forEach((item, i) => {
             quest_el.forEach(all_item => {
                 all_item.classList.remove('active')
             })
-            document.querySelector('.text-quest').remove();
+            console.log(document.querySelector('.text-quest').closest());
+            document.querySelector('.text-quest').closest().remove();
         }
 
         let target = e.currentTarget;
         const { x, y } = target.getBoundingClientRect();
         const quest_text = target.dataset.quest;
+        let quest_block_wrap = document.createElement('div');
+        quest_block_wrap.classList.add('wrap-text--clicked')
         let quest_block = document.createElement('div');
         quest_block.classList.add('text-quest');
         quest_block.setAttribute('id', target.dataset.questId);
         quest_block.innerText = quest_text;
         quest_block.style.cssText = `top: ${y}px; left: ${x}px;`;
+        quest_block_wrap.innerHTML = quest_block.outerHTML;
         
 
         if (!target.classList.contains('active')) {
             target.classList.add('active');
-            document.querySelector('.site').insertAdjacentElement('beforeend', quest_block)
+
+            document.querySelector('.site').insertAdjacentElement('beforeend', quest_block_wrap)
         }
     });
 });
@@ -83,15 +88,18 @@ function adaptiveQuestText() {
     _text.style.top = `${y}px`;
 }
 
-document.documentElement.addEventListener('click', function (e) {
+
+document.addEventListener('click', (e) => {
     let target = e.target;
-    if (target.classList.value === "text-quest") {
+    if (target.classList.value === "wrap-text--clicked") {
         document.querySelectorAll('.question').forEach(item => {
             item.classList.remove('active');
         })
-        document.querySelector('.text-quest').remove();
+        document.querySelector('.text-quest').parentElement.remove();
     } 
+    
 })
+
 
 
 document.querySelectorAll('.title__solution').forEach(item => {
