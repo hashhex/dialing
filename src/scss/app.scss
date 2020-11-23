@@ -53,6 +53,7 @@ body{
     line-height: 1;
     letter-spacing: 0.05em;
     transition: all .25s ease;
+    position: relative;
     @media (max-width: 767px) {
         padding: 15px 30px;
         font-size: 14px;
@@ -70,6 +71,52 @@ body{
     &-small{
         padding: 15px 30px;
         font-size: 14px;
+    }
+    &-icons{
+        padding-left: 100px;
+        color: $text;
+        font-size: 26px;
+        padding-top: 44px;
+        padding-bottom: 44px;
+        border-radius: 100px;
+        @media (max-width: 992px) {
+            padding-top: 37px;  
+            padding-bottom: 37px;
+            font-size: 22px;
+        }
+        @media (max-width: 767px) {
+            padding-top: 26px !important;  
+            padding-bottom: 26px !important;
+            padding-left: 85px !important; 
+            font-size: 18px;
+            font-weight: normal;
+            &::before{
+                width: 42px;
+                height: 42px;
+                left: 25px;
+            }
+        }
+        &::before{
+            content: '';
+            width: 50px;
+            height: 50px;
+            background-color: $accent;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 33px;
+            border-radius: 50%;
+            background-image: url('../assets/img/icons/microphone.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 18px;
+        }
+    }
+    &-white{
+        background-color: #ffffff;
+        &:hover{
+            color: $accent;
+        }
     }
 }
 
@@ -234,7 +281,7 @@ header{
             left: 0;
             top: 0;
             z-index: 1;
-            background-image: url('../assets/img/bg-line-rigth.png');
+            background-image: url('../assets/img/bg-line-rigth.svg');
             mix-blend-mode: luminosity;
         }
         &::after{
@@ -244,7 +291,7 @@ header{
             right: 0;
             bottom: 0;
             top: initial;
-            background-image: url('../assets/img/bg-line-left.png');
+            background-image: url('../assets/img/bg-line-left.svg');
             @media (max-width: 767px) {
                 display: none;
             }
@@ -425,4 +472,191 @@ header{
     .btn{
         margin-top: 20px;
     }
+}
+
+.section__solution{
+    background-color: $bg;
+    padding: 95px 0;
+    padding-bottom: 45px;
+    @media (max-width: 992px) {
+        padding-bottom: 80px;        
+        .pt--solution{
+            padding-top: 30px;
+        }
+    }
+    .pt--solution{
+        padding-top: 60px;
+    }
+    .title__section{
+        margin-bottom: 60px;
+    }
+    .title__solution{
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+        line-height: 32px;
+        margin-bottom: 15px;
+        img{
+            display: block;
+            margin-right: 12px;
+        }
+        @media (max-width: 767px) {
+            font-size: 16px;
+            margin-bottom: 15px;
+            position: relative;
+            &::before{
+                content: '';
+                width: 21px;
+                height: 21px;
+                border-radius: 50%;
+                background-color: #ededed;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            &::after{
+                content: '';
+                width: 7px;
+                height: 7px;
+                position: absolute;
+                right: 6px;
+                top: 50%;
+                transform: translateY(-50%);
+                border: 4px solid transparent;
+                border-top: 4px solid #000;
+                margin-top: 3.5px;
+                transition: all .25s ease;
+            }
+            &.active{
+                &::after{
+                    transform: translateY(-50%) scaleY(-1);
+                    margin-top: -3px;
+                }
+                & + ul {
+                    display: block;
+                }
+            }
+        }
+    }
+    ul{
+        margin: 0;
+        padding-left: 0;
+        margin-bottom: 50px;
+        @media (max-width: 767px) {
+            margin-bottom: 20px;
+            display: none;
+            li{
+                font-size: 14px;
+                line-height: 24px;
+                margin-bottom: 5px;
+            }
+        }
+        li{
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 24px;
+            opacity: 0.7;
+            list-style-position: inside;
+            list-style-type: none;
+            padding-left: 17px;
+            position: relative;
+            &::before{
+                content: '•';
+                position: absolute;
+                left: 0;
+                top: 0px;
+            }
+        }
+    }
+}
+
+.title__section{
+    margin-bottom: 60px;
+    @media (max-width: 767px){
+        margin-bottom: 30px;    
+        h2{
+            font-size: 24px;
+            line-height: 29px;
+            margin-bottom: 12px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 21px;
+        }
+    }
+    h2{
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-family: $pf;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 58px;
+    }
+    p{
+        margin: 0;
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
+.sprite-svg{
+    display: none;
+}
+
+.question{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    opacity: 0.3;
+    transition: all .25s ease;
+    position: relative;
+    z-index: 20;
+    &.active{
+        border-color: $accent;
+        opacity: 1;
+        svg{
+            fill: $accent
+        }
+        .text{
+            display: block;
+        }
+    }
+    &:hover{
+        cursor: pointer;
+        border-color: $accent;
+        opacity: 1;
+        svg{
+            fill: $accent
+        }
+    }
+    .icons{
+        color: #000000;
+        font-size: 10px;
+        svg{
+            width: 5px;
+            height: 9px;
+            display: block;
+            fill: #000;
+        }
+    }
+    
+}
+.text-quest{
+    position: fixed;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    box-shadow: 0px 35px 46px rgba(37, 50, 188, 0.03);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 20px;
+    width: 320px;
+    z-index: 20;
+    margin-top: 18px;
 }

@@ -40,13 +40,82 @@ function Paralax(scroll_number) {
     gsap.to(big, {y: scroll_number / 2})
 }
 
-Paralax(window.pageYOffset)
+Paralax(window.pageYOffset);
+
+
+let quest_el = document.querySelectorAll('[data-quest]');
+quest_el.forEach((item, i) => {
+    item.addEventListener('click', (e) => {
+        
+        if (document.querySelector('.text-quest')) {
+            quest_el.forEach(all_item => {
+                all_item.classList.remove('active')
+            })
+            document.querySelector('.text-quest').remove();
+        }
+
+        let target = e.currentTarget;
+        const { x, y } = target.getBoundingClientRect();
+        const quest_text = target.dataset.quest;
+        let quest_block = document.createElement('div');
+        quest_block.classList.add('text-quest');
+        quest_block.setAttribute('id', target.dataset.questId);
+        quest_block.innerText = quest_text;
+        quest_block.style.cssText = `top: ${y}px; left: ${x}px;`;
+        
+
+        if (!target.classList.contains('active')) {
+            target.classList.add('active');
+            document.querySelector('.site').insertAdjacentElement('beforeend', quest_block)
+        }
+    });
+});
+
+function adaptiveQuestText() {
+    if (!document.querySelector('.text-quest')) {
+        return false;
+    }
+    let _text =  document.querySelector('.text-quest');
+    let _id = Number(_text.getAttribute('id'));
+    let { x, y } = document.querySelector(`[data-quest-id="${_id}"]`).getBoundingClientRect();
+
+    _text.style.left = `${x}px`;
+    _text.style.top = `${y}px`;
+}
+
+document.documentElement.addEventListener('click', function (e) {
+    let target = e.target;
+    if (target.classList.value === "text-quest") {
+        document.querySelectorAll('.question').forEach(item => {
+            item.classList.remove('active');
+        })
+        document.querySelector('.text-quest').remove();
+    } 
+})
+
+
+document.querySelectorAll('.title__solution').forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (window.matchMedia("(min-width: 767px)").matches) {
+            return false;
+        }
+        let target = e.target
+        let _list = target.nextElementSibling;
+        if (!target.classList.contains('active')) {
+            target.classList.add('active');
+        } else {
+            target.classList.remove('active');
+        }
+    });
+});
 
 window.addEventListener('resize', (e) => {
     positionBurger(burger_clone, burger);
+    adaptiveQuestText()
 });
 
 window.addEventListener('scroll', (e) => {
     Paralax(window.pageYOffset);
+    adaptiveQuestText();
 })
 
