@@ -1,4 +1,7 @@
 import gsap from "gsap";
+import { Swiper, Navigation } from "swiper";
+
+Swiper.use([Navigation]);
 
 function positionBurger(clone, original) {
     let {x, y} = clone.getBoundingClientRect();
@@ -116,6 +119,29 @@ document.querySelectorAll('.title__solution').forEach(item => {
         }
     });
 });
+
+new Swiper('.work-carousel', {
+  loop: true,
+  spaceBetween: 50,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      640: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 3,
+      },
+      1100: {
+        slidesPerView: 4,
+      }
+  }
+})
 
 window.addEventListener('resize', (e) => {
     positionBurger(burger_clone, burger);
