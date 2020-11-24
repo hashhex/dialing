@@ -765,3 +765,166 @@ header{
         transform: rotate(360deg);
     }
 }
+
+.section__start{
+    background-color: $bg;
+    padding: 85px 0;
+    @media (max-width: 992px) {
+        padding-bottom: 60px;
+    }
+    .title__section{
+        margin-bottom: 20px;
+        @media (max-width: 992px) {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.line{
+    position: relative;
+    @media (min-width: 1500px) {
+        width: 1234.44px;
+    }
+    
+    &--bg{
+        @media (max-width: 992px) {
+            display: none;
+        }
+        img{
+            width: 100%;
+        }
+    }
+    &--text{
+        @media (max-width: 992px) {
+            display: flex;
+            column-gap: 25px;
+            overflow-x: auto;
+            width: calc(100% + 20px);
+            padding-left: 10px;
+            position: relative;
+            &::before{
+                content: '';
+                width: 1080px;
+                height: 6px;
+                background:linear-gradient(264.19deg, #80F2B9 21.23%, #53EBF8 46.64%, #46B4F1 73%, #4483FC 99.05%);
+                position: absolute;
+                left: 0;
+                bottom: 12px;
+            }
+        }
+    }
+    &-item{
+        max-width: 293px;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        @media (max-width: 1100px) {
+            max-width: 230px;
+            span{
+                font-size: 32px;
+                line-height: 38px;
+            }
+            h4{
+                font-size: 18px;
+                line-height: 32px;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 12px;
+                line-height: 18px;
+            }
+        }
+        @media (max-width: 992px) {
+            position: relative;
+            left: initial;
+            top: initial;
+            bottom: initial;
+            max-width: none;
+            flex: 0 0 250px;
+            width: 250px;
+            padding-left: 25px;
+            background-image: url('../assets/img/line-border.svg');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            padding-bottom: 25px;
+            &::before{
+                content: '';
+                width: 20px;
+                height: 20px;
+                border: 3px solid #fff;
+                position: absolute;
+                left: -10px;
+                bottom: 5px;
+                border-radius: 50%;
+            }
+        }
+        span{
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 48px;
+            display: block;
+            font-family: $pf;
+        }
+        h4{
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 32px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        p{
+            font-size: 16px;
+            line-height: 24px;
+            margin: 0;
+        }
+        &--1{
+            left: 35px;
+            top: 22%;
+            span{
+                color: #4483FC;
+            }
+            @media (max-width: 992px) {
+                &::before{
+                    background-color: #4483fc;
+                }
+            }
+        }
+        &--2{
+            left: 29%;
+            bottom: 18%;
+            span{
+                color: #46B4F1;
+            }
+            @media (max-width: 992px) {
+                &::before{
+                    background-color: #46B4F1;
+                }
+            }
+        }
+        &--3{
+            left: 54%;
+            top: 0%;
+            span{
+                color: #53EBF8;
+            }
+            @media (max-width: 992px) {
+                &::before{
+                    background-color: #53EBF8;
+                }
+            }
+        }
+        &--4{
+            left: 80%;
+            bottom: 30%;
+            span{
+                color: #55F3C7;
+            }
+            @media (max-width: 992px) {
+                &::before{
+                    background-color: #55F3C7;
+                }
+            }
+        }
+    }
+}
