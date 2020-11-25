@@ -28,7 +28,7 @@
                         <div class="col-12">
                             <h1>Колл-центр Dайлинг — ваш ключ к новым клиентам!</h1>
                             <p>Подберите пакет услуг, который нужен именно вам</p>
-                            <a href="#" class="btn btn-primary">СДЕЛАЙ ВЫЗОВ!</a>
+                            <a href="#" data-popup class="btn btn-primary">СДЕЛАЙ ВЫЗОВ!</a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5 d-none d-lg-block">
-                        <a href="#" class="btn btn-icons btn-white">Примеры звонков</a>
+                        <a href="#" data-popup class="btn btn-icons btn-white">Примеры звонков</a>
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="col-12 d-flex justify-content-center d-lg-none text-center">
                         
-                        <div><br><br><a href="#" class="btn btn-icons btn-white">Примеры звонков</a></div>
+                        <div><br><br><a data-popup href="#" class="btn btn-icons btn-white">Примеры звонков</a></div>
                     </div>
                 </div>
             </div>
@@ -284,7 +284,7 @@
                         <p>Тел.: <a href="tel:88007009875">8 800 700 9875</a></p>
                         <p>E-mail: <a href="mailto:call@dialing.pro">call@dialing.pro</a></p>
                         <p>Адрес: г. Уфа, ул. Айская, 69, корпус 2А</p>
-                        <a href="#" class="btn btn-primary btn-small">ОСТАВИТЬ ЗАЯВКУ</a>
+                        <a href="#" data-popup class="btn btn-primary btn-small">ОСТАВИТЬ ЗАЯВКУ</a>
                         <span class="d-none d-md-block">ООО «ЦЕНТР» ИНН 0274924910 КПП 027801001 ОГРН 1170280016972</span>
                     </div>
                     <div class="col-lg-6">
@@ -324,7 +324,7 @@
                     <div class="col">
                         <div class="footer-content">
                             <b>Хочешь работать в нашей команде?</b>
-                            <a href="#" class="btn btn-primary btn-small">ЗАПОЛНИТЬ АНКЕТУ</a>
+                            <a href="#" data-popup class="btn btn-primary btn-small">ЗАПОЛНИТЬ АНКЕТУ</a>
                         </div>
                     </div>
                 </div>
@@ -347,7 +347,7 @@
                         <p>Тел.: <a href="tel:88007009875">8 800 700 9875</a></p>
                         <p>E-mail: <a href="mailto:call@dialing.pro">call@dialing.pro</a></p>
                         <p>Адрес: г. Уфа, ул. Айская, 69, корпус 2А</p>
-                        <a href="#" class="btn btn-primary btn-small">ОСТАВИТЬ ЗАЯВКУ</a>
+                        <a href="#" data-popup class="btn btn-primary btn-small">ОСТАВИТЬ ЗАЯВКУ</a>
                     </div>
                 </div>
             </div>
@@ -359,6 +359,42 @@
             <span></span>
         </div>
         <!-- END /.burger original -->
+
+        <!-- POPUP -->
+        <div class="popup">
+            <div class="popup-overlay">
+                <div data-close-popup class="popup-close"></div>
+                <div class="popup-content">
+                    <div data-close-popup class="popup-close popup-close--inner"></div>
+                    <form data-form>
+                        <div class="no-result">
+                            <h3>Оставьте заявку</h3>
+                            <p>Оставьте заявку и наш менеджер перезвонит Вам в <br>ближайшее время или позвоните сами по <br>бесплатному номеру <a href="tel:88007009875">8 800 700 9875</a></p>
+                            <div class="fieldset">
+                                <legend>Ваше имя <sup>*</sup></legend>
+                                <input type="text" name="name" required>
+                            </div>
+                            <div class="fieldset">
+                                <legend>Номер телефона <sup>*</sup></legend>
+                                <input type="tel" class="tel" name="tel" required>
+                            </div>
+                            <div class="fieldset">
+                                <legend>Ваш e-mail</legend>
+                                <input type="email" name="email">
+                            </div>
+                            <div class="form-bottom">
+                                <button class="btn btn-primary" type="submit">ОТПРАВИТЬ</button>
+                            </div>
+                        </div>
+                        <div class="result">
+
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- END POPUP -->
         {% include "include/svg.html" %}
     </div>
     

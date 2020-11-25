@@ -55,6 +55,7 @@ body{
     letter-spacing: 0.05em;
     transition: all .25s ease;
     position: relative;
+    border: none;
     @media (max-width: 767px) {
         padding: 15px 30px;
         font-size: 14px;
@@ -64,6 +65,7 @@ body{
         color: #ffffff;
         &:hover{
             background-color: $hover;
+            box-shadow: 0px 5px 5px rgba(37, 50, 188, 0.1);
         }
         &:active{
             background-color: darken($hover, 10%);
@@ -1193,6 +1195,193 @@ footer{
             .btn{
                 width: 100%;
             }
+        }
+    }
+}
+
+.popup{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .25s ease;
+    &.active{
+        opacity: 1;
+        visibility: visible;
+        .popup-content{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    &-overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        display: flex;
+        background-color: rgba(0,0,0,.8);
+    }
+    .popup-close--inner{
+        @media (max-width: 992px){
+            display: block;
+        }
+    }
+    &-close{
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        right: 50px;
+        top: 50px;
+        background-size: cover;
+        border-radius: 50%;
+        background-color: #ffffff;
+        transition: all .25s ease;
+        &--inner{
+            display: none;
+        }
+        @media (max-width: 992px){
+            display: none;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            background-color: $accent;
+            &::after,
+            &::before{
+                background-color: #ffffff;
+            }
+        }
+        @media (max-width: 767px){
+            width: 40px;
+            height: 40px;
+            right: 20px;
+            top: 20px;
+            &::after,
+            &::before{
+                width: 15px;
+            }
+        }
+        &::after,
+        &::before{
+            content: '';
+            width: 28px;
+            height: 2px;
+            border-radius: 5px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: #000000;
+            transition: all .25s ease;
+        }
+        &::before{
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
+        &::after{
+            transform: translate(-50%,-50%) rotate(45deg);
+        }
+        &:hover{
+            background-color: $hover;
+            cursor: pointer;
+            &::after,
+            &::before{
+                background-color: #ffffff;
+            }
+        }
+    }
+    &-content{
+        max-width: 600px;
+        width: 100%;
+        padding: 60px 70px;
+        margin: auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        text-align: center;
+        opacity: 0;
+        transform: scale(.7);
+        transition: all .25s ease;
+        transition-delay: .25s;
+        @media (max-width: 992px){
+            padding-top: 130px;
+            position: relative;
+        }
+        @media (max-width: 767px){
+            padding-top: 100px;
+        }
+        @media (max-width: 576px){
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            border-radius: 0;
+            p{
+                br{
+                    display: none;
+                }
+            }
+        }
+        h3{
+            margin-top: 0;
+            font-size: 32px;
+            line-height: 38px;
+            margin-bottom: 25px;
+            font-family: $pf;
+        }
+        p{
+            margin-top: 0;
+            margin-bottom: 45px;
+            font-size: 16px;
+            line-height: 28px;
+            a{
+                color: $accent;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.fieldset{
+    margin-bottom: 30px;
+    position: relative;
+    legend{
+        color: #909090;
+        font-size: 18px;
+        line-height: 1;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        transition: all .25s ease;
+        sup{
+            color: red;
+        }
+        &.focus{
+            transform: translateY(-130%);
+            top: 0;
+            font-size: 14px;
+        }
+    }
+    input{
+        width: 100%;
+        height: 50px;
+        border: 1px solid #C9C9C9;
+        border-radius: 5px;
+        padding-left: 15px;
+        position: relative;
+        z-index: 2;
+        background-color: transparent;
+    }
+    input[type='tel']{
+        &::placeholder{
+            font-size: 0;
+            color: #fff;
         }
     }
 }

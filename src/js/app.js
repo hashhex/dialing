@@ -1,5 +1,8 @@
 import gsap from "gsap";
 import { Swiper, Navigation } from "swiper";
+import Inputmask from "inputmask";
+
+
 
 Swiper.use([Navigation]);
 
@@ -155,8 +158,56 @@ linksScroll.forEach(link => {
         });
         nav.classList.remove('active');
         burger.classList.remove('active');
+    });
 });
+
+let inputs = document.querySelectorAll(".fieldset input");
+[].forEach.call(inputs, function(item){
+  item.addEventListener("focus", (e) => {
+      let target = e.target;
+      target.previousElementSibling.classList.add('focus');
+  });
+  item.addEventListener("blur", (e) => {
+    let target = e.target;
+    if (target.value.length === 0) {
+        target.previousElementSibling.classList.remove('focus');
+    }
+  });
+});
+
+
+document.querySelector('[data-form]').addEventListener('submit', (e) => {
+    e.preventDefault();
+    let error = [];
+    let form = e.target;
+    form.querySelectorAll('input[required]').forEach(input => {
+        if (input.value === 0) {
+            error.push({input: 'empty'})
+        }
+    });
+    if (error.length !== 0) {
+        console.log(error)
+        return false
+    }
+});
+document.querySelectorAll('[data-popup]').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('.popup').classList.add('active');
+    });
 })
+
+
+document.querySelectorAll('[data-close-popup]').forEach(button => {
+    button.addEventListener('click', (e) => {
+        document.querySelector('.popup').classList.remove('active');
+    });
+})
+
+document.querySelectorAll('[type="tel"]').forEach(input_tel => {
+    new Inputmask("+7999-999 99 99").mask(input_tel)
+});
+
 
 
 window.addEventListener('resize', (e) => {
