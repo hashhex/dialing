@@ -27,10 +27,10 @@ function NavBurger() {
         }
     })
 
-    return { burger_clone, burger };
+    return { burger_clone, burger, nav };
 }
 
-let { burger_clone, burger } = NavBurger();
+let { burger_clone, burger, nav } = NavBurger();
 
 
 function Paralax(scroll_number) {
@@ -141,7 +141,23 @@ new Swiper('.work-carousel', {
         slidesPerView: 4,
       }
   }
+});
+
+let linksScroll = document.querySelectorAll('[data-scroll]');
+linksScroll.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        let target = e.target
+        let elementId = target.getAttribute('href').substr(1);
+        document.getElementById(elementId).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        nav.classList.remove('active');
+        burger.classList.remove('active');
+});
 })
+
 
 window.addEventListener('resize', (e) => {
     positionBurger(burger_clone, burger);

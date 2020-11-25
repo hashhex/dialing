@@ -34,7 +34,7 @@
                 </div>
             </div>
         </header>
-        <section class="section__solution">
+        <section id="solution" class="section__solution">
             <div class="container">
                 <div class="row align-items-lg-center">
                     <div class="col-lg-7">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </section>
-        <section class="section__test">
+        <section id="test" class="section__test">
             <div class="container">
                 <div class="row align-items-lg-center">
                     <div class="col-lg-6">
@@ -152,7 +152,7 @@
                 </div>
             </div>
         </section>
-        <section class="section__start">
+        <section id="start" class="section__start">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -199,7 +199,7 @@
                 </div>
             </div>
         </section>
-        <section class="section__works">
+        <section id="works" class="section__works">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -274,7 +274,7 @@
                 </div>
             </div>
         </section>
-        <section class="section__about">
+        <section id="contacts" class="section__about">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -318,20 +318,32 @@
                 </div>
             </div>
         </section>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="footer-content">
+                            <b>Хочешь работать в нашей команде?</b>
+                            <a href="#" class="btn btn-primary btn-small">ЗАПОЛНИТЬ АНКЕТУ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!-- NAVIGATION -->
         <nav class="hidden-nav">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
                         <ul>
-                            <li><a href="#">Наши услуги</a></li>
-                            <li><a href="#">Тестовый период</a></li>
-                            <li><a href="#">Запуск проекта</a></li>
-                            <li><a href="#">Наши клиенты</a></li>
+                            <li><a data-scroll href="#solution">Наши услуги</a></li>
+                            <li><a data-scroll href="#test">Тестовый период</a></li>
+                            <li><a data-scroll href="#start">Запуск проекта</a></li>
+                            <li><a data-scroll href="#works">Наши клиенты</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
-                        <h3 class="nav-title">Контакты</h3>
+                        <h3 class="nav-title"><a data-scroll href="#contacts">Контакты</a></h3>
                         <p>Тел.: <a href="tel:88007009875">8 800 700 9875</a></p>
                         <p>E-mail: <a href="mailto:call@dialing.pro">call@dialing.pro</a></p>
                         <p>Адрес: г. Уфа, ул. Айская, 69, корпус 2А</p>
