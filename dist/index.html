@@ -12,6 +12,8 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
+<script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
 <link rel="stylesheet" href="./css/app.css">
 <title>Index - page</title></head>
 <body>
@@ -280,6 +282,50 @@
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section__about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="title__section">
+                            <h2>Доверь вежливость профессионалам</h2>
+                        </div>
+                        <p>Тел.: <a href="tel:88007009875">8 800 700 9875</a></p>
+                        <p>E-mail: <a href="mailto:call@dialing.pro">call@dialing.pro</a></p>
+                        <p>Адрес: г. Уфа, ул. Айская, 69, корпус 2А</p>
+                        <a href="#" class="btn btn-primary btn-small">ОСТАВИТЬ ЗАЯВКУ</a>
+                        <span class="d-none d-md-block">ООО «ЦЕНТР» ИНН 0274924910 КПП 027801001 ОГРН 1170280016972</span>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="maps-circle">
+                            <div id="maps"></div>
+                            <script type="text/javascript">
+                                ymaps.ready(init);
+                                function init(){
+                                    var myMap = new ymaps.Map("maps", {
+                                        center: [54.731285, 55.976595],
+                                        zoom: 14,
+                                        controls: []
+                                    });
+
+                                    myPlacemark = new ymaps.Placemark([54.731285, 55.976595], {
+                                        hintContent: 'Dialing - ул. Айская, 69, корпус 2А',
+                                        balloonContent: '<b>Dialing</b> - ул. Айская, 69, корпус 2А'
+                                    }, {
+                                        iconLayout: 'default#image',
+                                        iconImageHref: 'assets/img/icons/marker.svg',
+                                        iconImageSize: [48, 56],
+                                        iconImageOffset: [-48, -56]
+                                    });
+
+                                    myMap.geoObjects.add(myPlacemark)
+                                }
+                            </script>
+                        </div>
+                        <span class="d-block d-md-none">ООО «ЦЕНТР» ИНН 0274924910 КПП 027801001 ОГРН 1170280016972</span>
                     </div>
                 </div>
             </div>
